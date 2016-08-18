@@ -13,8 +13,10 @@ import javax.persistence.PersistenceContext;
 import javax.ws.rs.BeanParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -41,11 +43,19 @@ public class ProdutoResource {
     }
     
     @DELETE
-    public Response removeProduto(@BeanParam Produto produto){
-        em.remove(em.merge(produto));
-        return Response.ok(produto).build();     
+    @Path("{id}")
+    public Response removeProduto(@PathParam("id") int id){
+        em.remove(em.merge(id));
+        return Response.ok().build();     
     }
     
+    @GET
+    @Path("{produtoId}")
+    public Response listProduto(@PathParam("id") int idProduto){
+        em.find(Produto.class, idProduto);
+        return Response.ok().build();
+        
+    }
     
     
 }

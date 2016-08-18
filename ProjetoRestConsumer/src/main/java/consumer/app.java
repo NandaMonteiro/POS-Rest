@@ -31,12 +31,6 @@ public class app {
 //        form.param("valor", "13.4");
 //        form.param("descricao", "produto a");
 //        
-        
-        Cliente cliente = new Cliente();
-        Form form = new Form();
-        form.param("nome", "Luciana" );
-        
-        
 
 //        Response post = webTarget.path("produto")
 //                .request()
@@ -44,6 +38,7 @@ public class app {
 //        Response post = webTarget.path("cliente");
 
         Response delete = webTarget.path("produto")
+                .resolveTemplate("id", 51)
                 .request()
                 .delete();
 

@@ -1,3 +1,5 @@
-produto/Produto.class
-produto/ProdutoResource.class
-org/netbeans/rest/application/config/ApplicationConfig.class
+org\netbeans\rest\application\config\ApplicationConfig.class
+cliente\Cliente.class
+cliente\ClienteResource.class
+produto\Produto.class
+produto\ProdutoResource.class

@@ -25,16 +25,24 @@ public class app {
         Client client = ClientBuilder.newClient();
         WebTarget webTarget = client.target(uri);
         
-        Produto p = new Produto();
+//        Produto p = new Produto();
+//        
+//        Form form = new Form();
+//        form.param("valor", "13.4");
+//        form.param("descricao", "produto a");
+//        
         
+        Cliente cliente = new Cliente();
         Form form = new Form();
-        form.param("valor", "13.4");
-        form.param("descricao", "produto a");
+        form.param("nome", "Luciana" );
         
         
+
 //        Response post = webTarget.path("produto")
 //                .request()
 //                .post(Entity.form(form));
+//        Response post = webTarget.path("cliente");
+
         Response delete = webTarget.path("produto")
                 .request()
                 .delete();
@@ -42,7 +50,11 @@ public class app {
         
         System.out.println("enviou requisicao");
         
+
         System.out.println(delete.readEntity(String.class));
+
+//        System.out.println(post.readEntity(String.class));
+ 
     }
     
 }

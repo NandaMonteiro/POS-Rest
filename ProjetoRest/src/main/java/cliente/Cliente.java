@@ -5,15 +5,22 @@
  */
 package cliente;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author nanda
  */
- @XmlRootElement
-public class Cliente {
-
+@Entity
+@XmlRootElement
+public class Cliente implements Serializable{
+    
+    @Id
+    @GeneratedValue
     private int id;
     private String nome;
 
@@ -40,5 +47,5 @@ public class Cliente {
     public String toString() {
         return "Cliente{" + "id=" + id + ", nome=" + nome + '}';
     }
-       
+
 }

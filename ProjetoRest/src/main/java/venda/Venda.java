@@ -7,6 +7,7 @@ package venda;
 
 import cliente.Cliente;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -37,13 +38,13 @@ public class Venda implements Serializable {
 
     public Venda(Cliente cliente, List<Produto> produtos) {
         this.cliente = cliente;
-        this.produtos = produtos;
+        this.produtos = new ArrayList<Produto>();
     }
 
     public Venda(long id, Cliente cliente, List<Produto> produtos) {
         this.id = id;
         this.cliente = cliente;
-        this.produtos = produtos;
+        this.produtos = new ArrayList<Produto>();
     }
 
     public long getId() {
@@ -68,6 +69,11 @@ public class Venda implements Serializable {
 
     public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
+    }
+
+    public boolean addProduto(Produto p) {
+        this.getProdutos().add(p);
+        return true;
     }
 
     @Override

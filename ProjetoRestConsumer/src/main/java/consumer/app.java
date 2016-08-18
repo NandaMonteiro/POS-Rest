@@ -37,18 +37,24 @@ public class app {
         form.param("nome", "Luciana" );
         
         
-        Response post = webTarget.path("cliente")
+
+//        Response post = webTarget.path("produto")
+//                .request()
+//                .post(Entity.form(form));
+//        Response post = webTarget.path("cliente");
+
+        Response delete = webTarget.path("produto")
                 .request()
-                .post(Entity.form(form));
+                .delete();
+
         
         System.out.println("enviou requisicao");
         
-        System.out.println(post.readEntity(String.class));
-        
-        
-        
-        
-        
+
+        System.out.println(delete.readEntity(String.class));
+
+//        System.out.println(post.readEntity(String.class));
+ 
     }
     
 }

@@ -32,13 +32,17 @@ public class app {
         form.param("descricao", "produto a");
         
         
-        Response post = webTarget.path("produto")
+//        Response post = webTarget.path("produto")
+//                .request()
+//                .post(Entity.form(form));
+        Response delete = webTarget.path("produto")
                 .request()
-                .post(Entity.form(form));
+                .delete();
+
         
         System.out.println("enviou requisicao");
         
-        System.out.println(post.readEntity(String.class));
+        System.out.println(delete.readEntity(String.class));
     }
     
 }

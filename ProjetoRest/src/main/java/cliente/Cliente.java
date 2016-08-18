@@ -9,6 +9,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -22,10 +23,17 @@ public class Cliente implements Serializable{
     @Id
     @GeneratedValue
     private int id;
+    @FormParam("nome")
     private String nome;
 
     public Cliente() {
     }
+
+    public Cliente(String nome) {
+        this.nome = nome;
+    }
+    
+    
 
     public int getId() {
         return id;

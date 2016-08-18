@@ -25,20 +25,30 @@ public class app {
         Client client = ClientBuilder.newClient();
         WebTarget webTarget = client.target(uri);
         
-        Produto p = new Produto();
+//        Produto p = new Produto();
+//        
+//        Form form = new Form();
+//        form.param("valor", "13.4");
+//        form.param("descricao", "produto a");
+//        
         
+        Cliente cliente = new Cliente();
         Form form = new Form();
-        form.param("valor", "13.4");
-        form.param("descricao", "produto a");
+        form.param("nome", "Luciana" );
         
         
-        Response post = webTarget.path("produto")
+        Response post = webTarget.path("cliente")
                 .request()
                 .post(Entity.form(form));
         
         System.out.println("enviou requisicao");
         
         System.out.println(post.readEntity(String.class));
+        
+        
+        
+        
+        
     }
     
 }
